@@ -1,0 +1,23 @@
+// C++ program to implement regular expression
+//(a+b)*aba(a+b)*
+#include <iostream>
+#include <regex>
+
+using namespace std;
+int main()
+{
+	string a = " ";
+	
+	//regex b("(a|b)*[0-9]*");
+	regex b("(a|b)*aba(a+b)*");
+	
+	cout<<"Enter any string : "<<endl;
+	cin>>a;
+	// regex_match function matches string a against regex b
+	if ( regex_match(a, b) )
+		cout << "matched \n";
+    else 
+        cout<<"NOt matched"<<endl;
+
+	return 0;
+}

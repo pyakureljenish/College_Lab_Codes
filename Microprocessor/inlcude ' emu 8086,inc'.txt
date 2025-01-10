@@ -1,0 +1,95 @@
+inlcude ' emu 8086,inc' 
+-model small
+-stack 100h
+-data
+inpt db 10 dup(?)
+-code
+main proc
+    mov ax,@data
+    mov ds,ax
+    mov cx,10
+    
+    print "enter 10 numbers:"
+     :lea dx,dis
+     :mov ah,09:display the 'enter your input messsge
+     :int 21h
+     
+     :lea=i.inpt ;index of input  stored in s i
+     
+   input:
+   mov ah,01 :move data in al register
+   int 21h
+   mov [si] ,al
+   inc si
+   loop input
+   
+
+//input the ten letters int the emulator
+
+include 'emu8086.inc' 
+.model small
+.stack 100h
+.data
+inpt db 10 dup(?)
+.code
+main proc
+    mov ax,@data
+    mov ds,ax
+    mov cx,10
+    
+    print "enter 10 numbers:"
+     
+     
+   input:
+   mov ah,01 
+   int 21h
+   mov [si] ,al
+   inc si
+   loop input
+
+//complet program to take an input from the user and display the output
+
+include 'emu8086.inc' 
+.model small
+.stack 100h
+.data
+inpt db 10 dup(?)
+.code
+main proc
+    mov ax,@data
+    mov ds,ax
+    mov cx,10
+    
+    print "enter 10 numbers:"
+     
+     
+   input:
+   mov ah,01 
+   int 21h
+   mov [si] ,al
+   inc si
+   loop input  
+   
+   mov ah,2
+   mov dl,10
+   int 21h
+   mov dl,13
+   int 21h
+   
+   mov cx,10
+   mov si,offset inpt
+   print "your number is:"
+   output:
+   mov dl,[si]
+   mov ah,2
+   int 21h
+   inc si
+    loop output 
+    
+endp
+end main
+   
+                        
+   
+                        
+                        

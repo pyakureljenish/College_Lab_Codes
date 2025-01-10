@@ -1,0 +1,44 @@
+.MODEL SMALL
+.STACK
+.DATA
+VAL1 DW 2015
+VAL2 DW 2050
+
+.CODE
+
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    MOV AX,VAL1
+    ADD AX,VAL2
+    
+    XOR DX,DX
+    MOV CX,100
+    DIV CX
+    AAM
+    ADD AX,3030H
+    MOV BX,AX  
+    
+    XCHG AX,DX
+    AAM
+    ADD AX,3030H
+    PUSH AX
+    
+    MOV DL,BH
+    MOV AH,02H
+    INT 21H
+    MOV DL,BL
+    MOV AH,02H
+    INT 21H
+    POP AX
+    MOV DL,AH
+    MOV DH,AL
+    MOV AH,02H
+    INT 21H
+    MOV DL,DH
+    MOV AH,02H
+    INT 21H
+    MOV AX,4C00H
+    INT 21H
+    MAIN ENDP
+END MAIN

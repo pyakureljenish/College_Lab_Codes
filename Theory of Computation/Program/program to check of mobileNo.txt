@@ -1,0 +1,46 @@
+// C++ program to check if given mobile number
+// is valid.
+#include <iostream>
+#include <regex>
+using namespace std;
+
+bool isValid(string s)
+{
+	// The given argument to pattern()
+	// is regular expression. With the help of
+	// regular expression we can validate mobile
+	// number.
+	// 1) Begins with 0 or 91
+	// 2) Then contains 6,7 or 8 or 9.
+	// 3) Then contains 9 digits
+const regex pattern("(9)?[7-8][0-9]{8}");
+
+// regex_match() is used to
+// to find match between given number
+// and regular expression
+if(regex_match(s, pattern))
+{
+	return true;
+}
+else
+{
+	return false;
+}
+}
+
+// Driver Code
+int main()
+{
+string s = "960101010";
+if(isValid(s))
+{
+	cout << "Valid";
+}
+else
+{
+	cout<<"Invalid";
+}
+return 0;
+}
+
+// This code is contributed by yuvraj_chandra
