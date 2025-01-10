@@ -1,1 +1,1 @@
-# College_Lab_Codes
+Problem solving using language:C,C++,Assembly,Verilog.
